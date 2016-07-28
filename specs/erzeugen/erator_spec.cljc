@@ -149,7 +149,7 @@
   {:req [:db/id]
    :opt [:parent/angel angel
          :parent/demon demon
-         :nephalem/weapons (spawn/ref-many weapon)]})
+         :nephalem/weapons [weapon]]})
 
 (specification "nested spawning"
   (assertions

@@ -56,11 +56,12 @@
 
 (defn spec->map-entry [{:keys [value attr xf] :as spec}]
   [attr (if-not xf value
-          (if (::spawner (meta xf))
-            (if (::ref-many (meta xf))
-              (xf value)
-              (apply xf value))
-            (xf value)))])
+          (cond
+            (::spawner (meta xf))
+            (apply xf value)
+            (and (vector? xf) (::spawner (meta (first xf))))
+            (mapv (partial apply (first xf)) value)
+            :else (xf value)))])
 
 (defn validate&parse! "validates and returns req + opt with values"
   [args kwargs req opt]
@@ -128,10 +129,3 @@
               (comp F g)
               (merge (meta F) (meta g))))
           f fs))
-
-(defn ref-many [spawner]
-  (with-meta
-    (fn [args]
-      (mapv (partial apply spawner) args))
-    (merge {::ref-many true}
-           (meta spawner))))

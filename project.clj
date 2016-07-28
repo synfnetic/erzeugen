@@ -11,6 +11,7 @@
   :test-refresh {:report untangled-spec.reporters.terminal/untangled-report
                  :changes-only true
                  :with-repl true}
+  :test-paths ["specs"]
   :doo {:build "automated-tests"
         :paths {:karma "node_modules/karma/bin/karma"}}
   :cljsbuild {:builds
