@@ -1,0 +1,13 @@
+{
+  "name": "erzeugen-spec",
+  "version": "1.0.0",
+  "description": "Testing",
+  "devDependencies": {
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-cljs-test": "^0.1.0",
+    "karma-firefox-launcher": "^0.1.7"
+  },
+  "author": "Anthony D'Ambrosio",
+  "license": "MIT"
+}
