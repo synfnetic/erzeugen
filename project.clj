@@ -1,4 +1,4 @@
-(defproject synfnetic/erzeugen "0.1.0-SNAPSHOT"
+(defproject synfnetic/erzeugen "0.1.0"
   :license {:name "MIT"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.8.51"]
